@@ -54,14 +54,14 @@ func (tl *TaskList) PrintTasks() {
 		}
 
 		var parts []string
-		parts = append(parts, fmt.Sprintf("%s %s", status, task.Title))
+		parts = append(parts, fmt.Sprintf("%s %s | Статус:", status, task.Title))
 
 		if !task.Done {
 			parts = append(parts, task.priorityLabel())
 		}
 
 		if task.DueDate != "" {
-			parts = append(parts, fmt.Sprintf("Due: %s", task.DueDate))
+			parts = append(parts, fmt.Sprintf("| Последний день: %s", task.DueDate))
 		}
 
 		line := strings.Join(parts, " ")
