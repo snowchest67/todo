@@ -44,7 +44,7 @@ var addCmd = &cobra.Command{
 			return err
 		}
 
-		fmt.Printf("✅ Задача добавлена: %s\n", taskText)
+		fmt.Printf("Задача добавлена: %s\n", taskText)
 		return nil
 	},
 }

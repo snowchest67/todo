@@ -36,7 +36,7 @@ var doneCmd = &cobra.Command{
 		if err != nil {
 		return err
 	}
-		fmt.Printf("✅ Задача выполнена: %s\n", (*tasks)[num-1].Title)
+		fmt.Printf("Задача выполнена: %s\n", (*tasks)[num-1].Title)
 		return nil
 	},
 }

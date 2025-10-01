@@ -54,7 +54,7 @@ func (tl *TaskList) PrintTasks() {
 		}
 
 		var parts []string
-		parts = append(parts, fmt.Sprintf("%s %s | Статус:", status, task.Title))
+		parts = append(parts, fmt.Sprintf("%s %s |", status, task.Title))
 
 		if !task.Done {
 			parts = append(parts, task.priorityLabel())
