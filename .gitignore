@@ -1,0 +1,12 @@
+*.exe
+*.out
+
+.vscode/
+.idea/
+
+*.log
+*.tmp
+
+tasklist.json
+
+vendor/
