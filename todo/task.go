@@ -21,54 +21,55 @@ type TaskList []Task
 func (t *Task) priorityLabel() string {
 	switch t.Priority {
 	case 5:
-		return "🔥 Критический"
+		return "Критический"
 	case 4:
-		return "❗️ Высокий"
+		return "Высокий"
 	case 3:
-		return "⚠️ Средний"
+		return "Средний"
 	case 2:
-		return "🔽 Низкий"
+		return "Низкий"
 	case 1:
-		return "🔘 Тривиальный"
+		return "Тривиальный"
 	default:
 		if t.Priority < 1 {
-			return "🔥 Критический"
+			return "Критический"
 		}
-		return "🔘 Тривиальный"
+		return "Тривиальный"
 	}
 }
 
 func (tl *TaskList) PrintTasks() {
 	if len(*tl) == 0 {
-		fmt.Println("📭 Нет задач.")
+		fmt.Println("Нет задач.")
 		return
 	}
 
-	fmt.Println("📋 Текущие задачи:")
-	fmt.Println(strings.Repeat("─", 55))
+	fmt.Println("Текущие задачи:")
+	fmt.Println(strings.Repeat("-", 55))
 
 	for i, task := range *tl {
-		status := "🔲"
+		status := "[ ]"
 		if task.Done {
-			status = "✅"
+			status = "[x]"
 		}
 
 		var parts []string
 		parts = append(parts, fmt.Sprintf("%s %s", status, task.Title))
 
 		if !task.Done {
-			parts = append(parts, fmt.Sprintf("[%s]", task.priorityLabel()))
+			parts = append(parts, task.priorityLabel())
 		}
 
 		if task.DueDate != "" {
-			parts = append(parts, fmt.Sprintf("📅 %s", task.DueDate))
+			parts = append(parts, fmt.Sprintf("Due: %s", task.DueDate))
 		}
 
 		line := strings.Join(parts, " ")
 		fmt.Printf("%2d. %s\n", i+1, line)
 	}
 
-	fmt.Println(strings.Repeat("─", 55))
+	fmt.Println(strings.Repeat("-", 55))
+
 }
 
 func (t *TaskList) AppendTask(newTasks ...Task) {
